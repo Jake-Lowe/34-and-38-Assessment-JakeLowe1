@@ -1,3 +1,213 @@
-<!-- initial commit-->
-<head>fourth commit</head> 
-<body>test</body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>12COMP Mr Bob P5 mini skills</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="12COMP mini skills">
+  <meta name="keywords" content="12COMP, mini skills">
+  <meta name="author" content="Mr Bob">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- stylesheets *********************************-->
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">    
+  <link rel="stylesheet" href="style.css">
+  <!-- P5.js ***************************************-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.2/addons/p5.dom.min.js"></script>
+
+  <!-- firebase start ******************************-->
+  <!-- Firebase App(core Firebase SDK) required & must be listed 1st -->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>  
+  <!-- Add Firebase products that you want to use **-->
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>  
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-analytics.js"></script> 
+  <!-- firebase end ********************************-->
+
+ <script defer src="interface.js"></script>
+  <script defer src="bouncing-ball.js"></script>
+  <script defer src="fb-handler.js"></script>
+  <script defer src="register.js"></script>
+  <script defer src="ad-manager.js"></script>
+  <script defer src="leaderboard.js"></script>
+</head>
+  
+<!--***************************************************
+//  BODY
+****************************************************-->
+<body>
+<!--***************************************************
+//  START SCREEN
+****************************************************-->
+  <section id="startScreen">
+    <div class="canvas2">
+      <img id="balls" class="background" src="images/balls.PNG" alt="balls">
+      <h1 id="text" class="gameTitle">Bouncing Ball</h1>
+      <button onclick="fb_html_login();" id="game" class="w3-button w3-green login">Log in</button>
+    </div>
+  </section>
+
+<!--***************************************************
+//  REGISTRATION SCREEN
+****************************************************-->
+  <section id="registrationPage">
+    <div class="w3-container w3-rest">
+      <form id="f_reg" onsubmit="return false;" class="w3-container w3-card-4 transparentBG">
+        <h1 class="w3-center headFont">Register</h1>
+
+        <div class="w3-row w3-section">
+          <div class="w3-col w3-margin-top" style="width: 50px">
+            <i class="w3-xlarge fa fa-user"></i></div>
+          <div class="w3-col m3">
+            <p id="p_regName" class="w3-white w3-border w3-padding" style="height: 35px;"></p>
+          </div>
+          <div class="w3-col m1">.</div>
+          <div class="w3-col w3-margin-top" style="width: 50px">
+            <i class="w3-xlarge fa fa-envelope-o"></i></div>
+          <div class="w3-rest">
+            <p id="p_regEmail" class="w3-white w3-border w3-padding" style="height: 35px;"></p>
+          </div>
+        </div>
+
+        <div class="w3-row">
+          <div class="w3-col" style="width: 50px">
+            <i class="w3-xlarge fa fa-user-circle"></i></div>
+          <div class="w3-rest">
+            <input id="nameInput" class="w3-input w3-border" required name="gameName" type="text" minlength="3" maxlength="16" placeholder="Game Name">
+          </div>
+        </div>
+
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width: 50px">
+            <i class="w3-xlarge fa fa-phone"></i></div>
+          <div class="w3-rest">
+            <input class="w3-input w3-border" required name="phone" type="text" 
+min="1" minlength="3" maxlength="16" placeholder="Phone">
+          </div>
+        </div>
+
+        <div class="w3-row w3-section">
+          <div class="w3-col" style="width: 50px">
+            <img src="images/noun_Gender Neutral_14064.png" 
+                 alt="Gender symbol" width="40" height="30"></div>
+          <div class="w3-col m3">
+            <select id="gender" style="height: 35px;">
+              <option value="f">female</option>
+              <option value="m">male</option>
+              <option value="o">other</option>
+              <option value="?">prefer not to say</option>
+            </select>
+          </div>
+          <div class="w3-col m1">.</div>
+          <div class="w3-col" style="width: 50px">
+            <img src="images/noun_age_2941875.png" 
+                 alt="age" width="40" height="40"></div>
+          <div class="w3-rest">
+            <input class="w3-input w3-border" min="16" max="99" required name="age" 
+                   type="number" placeholder="Age">
+          </div>
+        </div>
+        
+        <div class="w3-col m1">.</div>
+        <div class="w3-rest">
+          <button class="w3-button w3-block w3-blue w3-ripple w3-padding w3-border" 
+                  onclick="reg_regDetailsEntered()" value="Submit">
+                  click to register
+          </button>
+        </div>
+        
+      </form>
+    </div>
+  </section>
+  
+<!--***************************************************
+//  GAME PAGE
+****************************************************-->
+  <section id="gamePage">
+    <div class = "w3-container w3-blue">
+      <h1 class="w3-wide">Bouncing Ball</h1>
+    </div>
+    <div class="data w3-third w3-purple">
+      <button onclick="bb_startGame();" id="startGame" class="w3-button w3-green">Start</button>
+      <h4 id="timer">Time: 0 secs</h4>
+      <h4 id="hits">Hits: 0</h4>
+      <h4 id="misses">Misses: 0</h4>
+      <br>
+      <h4 id="username">Username: </h4>
+      <h4 id="highscore">High score: </h4>
+      <button onclick="int_changeScreen('gamePage', 'leaderboardScreen'), fb_leaderboard();" id="openLeaderboard" class="w3-button w3-green">Leaderboard</button>
+      <button id="b_lpAdmin" class="w3-button w3-green"
+                onclick="ad_admin()">ADMIN
+        </button>
+    </div>
+    <div id="canv" class="canvas2 w3-container w3-rest w3-yellow"><img id="balls" src="images/balls.PNG" alt="balls"></div>
+    <div id="endScreen" class="w3-container w3-rest w3-red">
+      <h1>Game Over</h1>
+      <h1 id="endScore">Score: </h1>
+      <h1 id="newscore"></h1>
+    </div>
+  </section>
+</body>
+</html>
+
+<!--***************************************************
+//  LEADERBOARD SCREEN
+****************************************************-->
+  <section id="leaderboardScreen">
+    <div class = "w3-container w3-blue">
+      <h1 class="w3-wide">Bouncing Ball</h1>
+    </div>
+      <button onclick="int_changeScreen('leaderboardScreen', 'gamePage');" id="closeLeaderboard" class="w3-button w3-green">Close</button>
+    <div class="w3-container w3-rest w3-purple">
+      <br>
+      <h2>Leaderboard</h2>
+      <br>
+    </div>
+    <div id="leaderboardNames" class="w3-container w3-quarter w3-yellow">
+      <div id=leaderboardName>
+        <h4>Username:<br></h4>
+      </div>
+    </div>
+    <div id="leaderboardScores" class="w3-container w3-quarter w3-red">
+      <div id=leaderboardScore>
+        <h4>Score:<br></h4>
+      </div>
+    </div>
+  </section>
+</body>
+</html>
+
+  <!--*************************************************************
+			ADMIN PAGE 
+  **************************************************************-->
+  <section id="adminPage" class="w3-grey">
+    <div class="w3-row">
+      <div class="w3-container w3-grey w3-col m10">
+        <h1 class="w3-wide">Admin page</h1>
+      </div>
+    </div>
+    
+    <nav id="n_admin" class="w3-bar stickyNav">
+      <button id="b_adHome" class="w3-button w3-block w3-col m3 
+                                   w3-medium w3-ripple w3-border" 
+              onclick="ad_home()" value="Submit">home
+	  </button>
+      <button id="b_adUser" class="w3-button w3-block w3-col m3 
+                                   w3-medium w3-ripple w3-small w3-border" 
+              onclick="ad_user()" value="Submit">users
+      </button>
+      <button id="b_adBB" class="w3-button w3-block w3-col m3 
+                                 w3-medium w3-ripple w3-small w3-border" 
+              onclick="ad_BB()" value="Submit">BB
+      </button>
+    </nav>
+      
+    <div>
+      <div id="d_admin" class="w3-table-all w3-small w3-light-grey 
+                               w3-hoverable w3-border w3-bordered content">
+	    <table id="t_userData" class="w3-text-black"></table>
+	  </div>
+    </div>
+  </section> 
+<!-- END OF HTML -++++++++++++++++++++++++++++++++++-->

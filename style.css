@@ -3,9 +3,9 @@
   Style a basic W3.CSS interface.
     v1 Basic layout of landing & game pages.
 *************************************************************/
-html, body {
-  font-family: tahoma;
-  color: black;
+html {
+  height: 100%;
+  width: 100%;
 }
 
 canvas {
@@ -17,7 +17,9 @@ canvas {
 ****************************************************/
 #startScreen {
   display: block;
+  background-color:#4f4f4f;
   height: 100vh;
+  width: 100vw;
 }
 
 #startScreen .w3-half {
@@ -28,25 +30,256 @@ canvas {
   height:18.5vh;
 }
 
-#startScreen .gameTitle {
+#titleImage {
+  display: block;
   position: absolute;
-  top: 30%;
+  top: 35%;
   left: 50%;
-  font-size: 70px;
   transform: translate(-50%, -50%);
-  color: white;
+  height: 50%;
 }
 
 #startScreen .login {
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   font-size: 20px;
   transform: translate(-50%, -50%);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 #startScreen .background {
   transform: translate(1%, 0%);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+}
+
+.ball {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+  left: -30px;
+  top: 0px;
+  animation: bounce 3s linear infinite, squashing 3s linear infinite;
+}
+
+@keyframes bounce {
+ 16%, 48%, 78% {
+   top: 500px;
+   animation-timing-function: ease-out;
+ } 
+  32% {
+    top: 300px;
+    animation-timing-function: ease-in;
+  }
+  62% {
+    top: 400px;
+    animation-timing-function: ease-in;
+  }
+  90% {
+    top: 450px;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    top: 520px;
+    left: 100%;
+    animation-timing-function: ease-out;
+    transform: rotate(360deg)
+  }
+}
+
+.ball1 {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+  right: -30px;
+  top: 0px;
+  animation: bounce1 3.5s linear infinite, squashing 3s linear infinite;
+}
+
+@keyframes bounce1 {
+ 16%, 48%, 78% {
+   top: 500px;
+   animation-timing-function: ease-out;
+ } 
+  32% {
+    top: 380px;
+    animation-timing-function: ease-in;
+  }
+  62% {
+    top: 420px;
+    animation-timing-function: ease-in;
+  }
+  90% {
+    top: 470px;
+    animation-timing-function: ease-in;
+  }
+  100% {
+    top: 550px;
+    right: 100%;
+    animation-timing-function: ease-out;
+    transform: rotate(360deg)
+  }
+}
+
+.ball2 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce2 0.5s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce2 {
+  from { transform: translate3d(3vw, 20vh, 0);     }
+  to   { transform: translate3d(3vw, 37vh, 0); }
+}
+
+.ball3 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce3 0.7s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce3 {
+  from { transform: translate3d(20vw, 15vh, 0);     }
+  to   { transform: translate3d(20vw, 40vh, 0); }
+}
+
+.ball4 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce4 0.9s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce4 {
+  from { transform: translate3d(70vw, 30vh, 0);     }
+  to   { transform: translate3d(70vw, 55vh, 0); }
+}
+
+.ball5 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce5 0.8s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce5 {
+  from { transform: translate3d(50vw, 70vh, 0);     }
+  to   { transform: translate3d(50vw, 90vh, 0); }
+}
+
+.ball6 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce6 0.6s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce6 {
+  from { transform: translate3d(35vw, 60vh, 0);     }
+  to   { transform: translate3d(35vw, 75vh, 0); }
+}
+
+.ball7 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce7 0.8s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce7 {
+  from { transform: translate3d(85vw, 10vh, 0);     }
+  to   { transform: translate3d(85vw, 25vh, 0); }
+}
+
+.ball8 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce8 0.85s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce8 {
+  from { transform: translate3d(10vw, 48vh, 0);     }
+  to   { transform: translate3d(10vw, 70vh, 0); }
+}
+
+.ball9 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce9 0.75s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce9 {
+  from { transform: translate3d(85vw, 58vh, 0);     }
+  to   { transform: translate3d(85vw, 75vh, 0); }
+}
+
+.ball10 {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-image: linear-gradient(to right, lightgray, gray);
+
+  animation: bounce10 0.65s;
+  animation-direction: alternate;
+  animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
+  animation-iteration-count: infinite;
+}
+
+@keyframes bounce10 {
+  from { transform: translate3d(60vw, -20vh, 0);     }
+  to   { transform: translate3d(60vw, 0vh, 0); }
 }
 
 /***************************************************

@@ -41,11 +41,19 @@
 //  START SCREEN
 ****************************************************-->
   <section id="startScreen">
-    <div class="canvas2">
-      <img id="balls" class="background" src="images/balls.PNG" alt="balls">
-      <h1 id="text" class="gameTitle">Bouncing Ball</h1>
-      <button onclick="fb_html_login();" id="game" class="w3-button w3-green login">Log in</button>
-    </div>
+    <img id="titleImage" src="images/title.png" alt="title">
+    <button onclick="fb_html_login();" id="game" class="w3-round-xlarge w3-button w3-green login">Play</button>
+    <div class="ball"></div>
+    <div class="ball1"></div>
+    <div class="ball2"></div>
+    <div class="ball3"></div>
+    <div class="ball4"></div>
+    <div class="ball5"></div>
+    <div class="ball6"></div>
+    <div class="ball7"></div>
+    <div class="ball8"></div>
+    <div class="ball9"></div>
+    <div class="ball10"></div>
   </section>
 
 <!--***************************************************
@@ -126,7 +134,7 @@ min="1" minlength="3" maxlength="16" placeholder="Phone">
 ****************************************************-->
   <section id="gamePage">
     <div class = "w3-container w3-blue">
-      <h1 class="w3-wide">Bouncing Ball</h1>
+      <h1 class="w3-wide">Bouncing Balls</h1>
     </div>
     <div class="data w3-third w3-purple">
       <button onclick="bb_startGame();" id="startGame" class="w3-button w3-green">Start</button>

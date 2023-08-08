@@ -3,9 +3,9 @@
   Style a basic W3.CSS interface.
     v1 Basic layout of landing & game pages.
 *************************************************************/
-html {
-  height: 100%;
-  width: 100%;
+html, body {
+  font-family: tahoma;
+  color: black;
 }
 
 canvas {
@@ -17,9 +17,27 @@ canvas {
 ****************************************************/
 #startScreen {
   display: block;
-  background-color:#4f4f4f;
+  background-color: transparent;
   height: 100vh;
   width: 100vw;
+  animation: rotateGradient 15s linear infinite;
+}
+@keyframes rotateGradient {
+  0% {
+    background-color: #f39c12;
+  }
+  25% {
+    background-color: #e74c3c;
+  }
+  50% {
+    background-color: #238dd4;
+  }
+  75% {
+    background-color: #2ecc71;
+  }
+  100% {
+    background-color: #f39c12;
+  }
 }
 
 #startScreen .w3-half {
@@ -45,16 +63,13 @@ canvas {
   left: 50%;
   font-size: 20px;
   transform: translate(-50%, -50%);
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  box-shadow: 0 10px 50px 0 rgba(255, 255, 255, 0.2), 0 10px 25px 0 rgba(255, 255, 255, 0.19);
+  /* button border */
+  border: 2px solid white;
 }
 
 #startScreen .background {
   transform: translate(1%, 0%);
-}
-
-body {
-  display: flex;
-  justify-content: center;
 }
 
 .ball {
@@ -62,7 +77,12 @@ body {
   height: 30px;
   position: absolute;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #e74c3c, /* Red color */
+    #3498db 50%, /* Blue color */
+    #2ecc71 /* Green color */
+  );
   left: -30px;
   top: 0px;
   animation: bounce 3s linear infinite, squashing 3s linear infinite;
@@ -98,7 +118,12 @@ body {
   height: 30px;
   position: absolute;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #df3b28, /* Red color */
+    #f3d512 50%, /* Orange color */
+    #9b59b6 /* Purple color */
+  );
   right: -30px;
   top: 0px;
   animation: bounce1 3.5s linear infinite, squashing 3s linear infinite;
@@ -133,8 +158,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
-
+  background-image: linear-gradient(
+    to bottom right,
+    #e74c3c, /* Red color */
+    #e67e22 50%, /* Dark orange color */
+    #27ae60 /* Emerald green color */
+  );
   animation: bounce2 0.5s;
   animation-direction: alternate;
   animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
@@ -150,8 +179,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
-
+  background-image: linear-gradient(
+    to bottom right,
+    #3498db, /* Blue color */
+    #1abc9c 50%, /* Green-blue color */
+    #d35400 /* Pumpkin color */
+  );
   animation: bounce3 0.7s;
   animation-direction: alternate;
   animation-timing-function: cubic-bezier(.5,0.05,.8,.5);
@@ -167,7 +200,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #3498db, /* Blue color */
+    #f39c12 50%, /* Orange color */
+    #c0392b /* Dark red color */
+  );
 
   animation: bounce4 0.9s;
   animation-direction: alternate;
@@ -184,7 +222,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #2ecc71, /* Green color */
+    #3498db 50%, /* Blue color */
+    #f39c12 /* Orange color */
+  );
 
   animation: bounce5 0.8s;
   animation-direction: alternate;
@@ -201,7 +244,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #2ecc71, /* Green color */
+    #9b59b6 50%, /* Purple color */
+    #d35400 /* Pumpkin color */
+  );
 
   animation: bounce6 0.6s;
   animation-direction: alternate;
@@ -218,7 +266,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #f39c12, /* Orange color */
+    #d35400 50%, /* Pumpkin color */
+    #8e44ad /* Dark purple color */
+  );
 
   animation: bounce7 0.8s;
   animation-direction: alternate;
@@ -235,7 +288,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #8e44ad, /* Dark purple color */
+    #3498db 50%, /* Blue color */
+    #e74c3c /* Red color */
+  );
 
   animation: bounce8 0.85s;
   animation-direction: alternate;
@@ -252,7 +310,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #2ecc71, /* Green color */
+    #f39c12 50%, /* Orange color */
+    #8e44ad /* Dark purple color */
+  );
 
   animation: bounce9 0.75s;
   animation-direction: alternate;
@@ -269,7 +332,12 @@ body {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: linear-gradient(to right, lightgray, gray);
+  background-image: linear-gradient(
+    to bottom right,
+    #3498db, /* Blue color */
+    #e74c3c 50%, /* Red color */
+    #f39c12 /* Orange color */
+  );
 
   animation: bounce10 0.65s;
   animation-direction: alternate;

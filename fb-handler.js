@@ -230,7 +230,7 @@ function fb_leaderboard() {
 // Input: user's details and array for the details to be put inside
 // Return: n/a
 /*****************************************************/
-/*/
+/*/*/
 function fb_processLoginData(_dbData, _data) {
   console.log("processData: ");
   console.log(_dbData)
@@ -247,6 +247,7 @@ function fb_processLoginData(_dbData, _data) {
       _data.username = _dbData.username;
       console.log("process username. username: "+_dbData.username);
       document.getElementById("username").innerHTML = "Username: "+_data.username;
+      console.log(document.getElementById("username").innerHTML);
       fb_readRec(BB, userDetails.uid, userScore, fb_processLoginData);
     } else {
       if(_data.admin == null){

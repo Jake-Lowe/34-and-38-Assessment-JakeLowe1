@@ -45,7 +45,7 @@ function setup() {
 function bb_createCanv() {
   //html element for the canvas to go inside
   let canv = document.getElementById("canv");
-  canvas = createCanvas(canv.offsetWidth, canv.offsetWidth);
+  canvas = createCanvas(canv.offsetWidth, canv.offsetHeight);
   canvas.parent('canv');
   canvas.position(canv.offsetLeft, canv.offsetTop);
   console.log("created");

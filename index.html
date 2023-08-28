@@ -32,6 +32,8 @@
   <script defer src="ad-manager.js"></script>
   <script defer src="leaderboard.js"></script>
 </head>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   
 <!--***************************************************
 //  BODY
@@ -42,7 +44,7 @@
 ****************************************************-->
   <section id="startScreen">
     <img id="titleImage" src="images/title.png" alt="title">
-    <button onclick="fb_html_login();" id="game" class="w3-round-xlarge w3-button w3-green login with-border">Play Now</button>
+    <button onclick="fb_html_login();" id="game" class="w3-round-xlarge w3-button w3-green login with-border">Play</button>
     <div class="ball"></div>
     <div class="ball1"></div>
     <div class="ball2"></div>
@@ -133,31 +135,109 @@ min="1" minlength="3" maxlength="16" placeholder="Phone">
 //  GAME PAGE
 ****************************************************-->
   <section id="gamePage">
-    <div class = "w3-container w3-blue">
-      <h1 class="w3-wide">Bouncing Balls</h1>
+    <nav class="navbar">
+      <div class="logo">
+        <a href="" class="nav-button">Bouncing Balls</a>
     </div>
-    <div class="data w3-third w3-purple">
-      <button onclick="bb_startGame();" id="startGame" class="w3-button w3-green">Start</button>
-      <h4 id="timer">Time: 0 secs</h4>
-      <h4 id="hits">Hits: 0</h4>
-      <h4 id="misses">Misses: 0</h4>
-      <br>
-      <h4 id="username">Username: </h4>
-      <h4 id="highscore">High score: </h4>
-      <button onclick="int_changeScreen('gamePage', 'leaderboardScreen'), fb_leaderboard();" id="openLeaderboard" class="w3-button w3-green">Leaderboard</button>
-      <button id="b_lpAdmin" class="w3-button w3-green"
-                onclick="ad_admin()">ADMIN
-        </button>
-    </div>
-    <div id="canv" class="canvas2 w3-container w3-rest w3-yellow"><img id="balls" src="images/balls.PNG" alt="balls"></div>
-    <div id="endScreen" class="w3-container w3-rest w3-red">
-      <h1>Game Over</h1>
-      <h1 id="endScore">Score: </h1>
-      <h1 id="newscore"></h1>
-    </div>
+          <div class="nav-buttons">
+          <a class="nav-button" onclick="window.LeaderboardDialog.showModal(), fb_leaderboard();">Leaderboard</a>
+          <a class="nav-button" onclick="window.HelpDialog.showModal(), fb_leaderboard();">Help</a>
+      </div>
+      <div class="profile">
+          <div class="profile-name" id="username">Username: </div>
+          <div class="high-score" id="highscore">High Score: </div>
+      </div>
+  </nav>
+
+<div class="StatsDisplayer">
+  <div>
+    <span id="timer">Time: 0</span>
+    <span>secs</span>
+</div>
+  <div id="hits">Hits: 0</div>
+  <div id="misses">Misses: 0</div>
+</div>
+  
+<div class="start-menu">
+  <h1>Bouncing Balls</h1>
+  <div class="game-over-message" style="display: none;">
+      Game Over -
+      <span id="endScore"></span>
+  </div>
+  <div class="menu-buttons">
+      <button class="start-button" onclick="showStartMenu()">Start</button>
+      <button class="help-button" onclick="showHelpMenu()">Help</button>
+      <button class="credits-button" onclick="showCreditsMenu()">Credits</button>
+  </div>
+</div>
+
+</div>
+<script src="startmenu.js"></script>
+<script src="bouncing-ball.js"></script>
+
+
+<div id="canv" class="canvas2 w3-container w3-rest"><img id="balls" alt="balls"></div>
+<div id="endScreen" class="w3-container w3-rest">
+    <h1>Game Over</h1>
+    <h1 id="endScore">Score: </h1>
+    <h1 id="newscore"></h1>
+</div>
   </section>
 </body>
 </html>
+
+
+<!--modal leaderboard-->
+<script>
+function resetLeaderboardScores() {
+    // reset the data of the Modal (names and scores) 
+    console.log('resetting leaderboard scores');
+    $('#leaderboardScores').html('');
+    $('#leaderboardNames').html('');
+    console.log('leaderboard scores reset');
+    console.log('closing modal');
+    document.getElementById('LeaderboardDialog').close();
+    console.log('modal closed');
+}
+function resetHelp() {
+    // reset the data of the Modal (names and scores) 
+    $('#leaderboardScores').html('');
+    $('#leaderboardNames').html('');
+    document.getElementById('HelpDialog').close();
+}
+</script>
+
+<dialog id="LeaderboardDialog" class="dialog">
+  <h1 style="margin-top: -10px;">Leaderboard</h1>
+  <div class="column-container">
+      <div class="column">
+          <h3 style="margin-top: -15px;">Username:</h3>
+          <div style="margin-top: -25px;" id="leaderboardNames"></div>
+      </div>
+      <div class="column">
+          <h3 style="margin-top: -15px;">Score:</h3>
+          <div style="margin-top: -25px;" id="leaderboardScores"></div>
+      </div>
+  </div>
+  <button onclick="resetLeaderboardScores();" aria-label="close" class="x">❌</button>
+</dialog>
+</div>
+<!--modal leaderboard-->
+
+<!--modal help-->
+<dialog id="HelpDialog" class="dialog">
+  <h1 style="margin-top: -10px;">Help Menu</h1>
+  <div class="column-container">
+      <div class="column">
+          <h3 style="margin-top: -10px;">How To Play?</h3>
+          <div style="margin-top: -5px;">You play by clicking balls (no homo)</div>
+      </div>
+  </div>
+  <button onclick="resetHelp();" aria-label="close" class="x">❌</button>
+</dialog>
+</div>
+<!--modal help-->
+
 
 <!--***************************************************
 //  LEADERBOARD SCREEN

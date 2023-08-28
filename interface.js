@@ -43,24 +43,34 @@ function int_processGame(_score, _state) {
     document.getElementById("balls").style.display = "none";
     document.getElementById("startGame").classList.remove("w3-green");
     document.getElementById("startGame").classList.add("w3-red");
-    document.getElementById("startGame").innerHTML = "Stop";
+    document.getElementById("startGame").innerHTML = "Balls Clicker - Stop";
     document.getElementById("newscore").innerHTML = "";
+
+    //Detect ending
   } else if(_state === "end") {
     console.log("int_processGame: player quit");
+    handleEnd();
+    //Detect ending
+
     document.getElementById("endScore").innerHTML = "Score: 0";
     document.getElementById("canv").style.display = "none";
     document.getElementById("endScreen").style.display = "block";
     document.getElementById("startGame").classList.remove("w3-red");
     document.getElementById("startGame").classList.add("w3-green");
-    document.getElementById("startGame").innerHTML = "Start";
-  } else if(_state === "finished") {
+    document.getElementById("startGame").innerHTML = "Balls Clicker - Start";
+
+    //Detect user finishing for menu
+  } else if (_state === "finished") {
     console.log("int_processGame: player finished");
+    handleGameOver(score); 
+    //end of mini edit here
+    
     document.getElementById("endScore").innerHTML = "Score: "+_score;
     document.getElementById("canv").style.display = "none";
     document.getElementById("endScreen").style.display = "block";
     document.getElementById("startGame").classList.remove("w3-red");
     document.getElementById("startGame").classList.add("w3-green");
-    document.getElementById("startGame").innerHTML = "Start";
+    document.getElementById("startGame").innerHTML = "Balls Clicker - Start";
     if(_score > userScore.score) {
       console.log("new high score: "+_score);
       console.log("old high score: "+userScore.score);

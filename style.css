@@ -12,6 +12,16 @@ canvas {
   display: block;
 }
 
+
+#canv {
+  position: fixed;
+  top: 3%;
+  left: 0;
+  width: 100%;
+  height: 97%;
+  z-index: 0;
+}
+
 /***************************************************
   START SCREEN STYLING
 ****************************************************/
@@ -64,7 +74,15 @@ canvas {
   font-size: 20px;
   transform: translate(-50%, -50%);
   box-shadow: 0 10px 50px 0 rgba(255, 255, 255, 0.2), 0 10px 25px 0 rgba(255, 255, 255, 0.19);
-  /* button border */
+  border: 2px solid white;
+}
+#startScreen .training {
+  position: absolute;
+  top: 66.5%;
+  left: 50%;
+  font-size: 20px;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 10px 50px 0 rgba(255, 255, 255, 0.2), 0 10px 25px 0 rgba(255, 255, 255, 0.19);
   border: 2px solid white;
 }
 
@@ -79,9 +97,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #e74c3c, /* Red color */
-    #3498db 50%, /* Blue color */
-    #2ecc71 /* Green color */
+    #e74c3c,
+    #3498db 50%,
+    #2ecc71
   );
   left: -30px;
   top: 0px;
@@ -120,9 +138,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #df3b28, /* Red color */
-    #f3d512 50%, /* Orange color */
-    #9b59b6 /* Purple color */
+    #df3b28,
+    #f3d512 50%,
+    #9b59b6
   );
   right: -30px;
   top: 0px;
@@ -160,9 +178,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #e74c3c, /* Red color */
-    #e67e22 50%, /* Dark orange color */
-    #27ae60 /* Emerald green color */
+    #e74c3c,
+    #e67e22 50%,
+    #27ae60 
   );
   animation: bounce2 0.5s;
   animation-direction: alternate;
@@ -181,9 +199,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #3498db, /* Blue color */
-    #1abc9c 50%, /* Green-blue color */
-    #d35400 /* Pumpkin color */
+    #3498db,
+    #1abc9c 50%, 
+    #d35400 
   );
   animation: bounce3 0.7s;
   animation-direction: alternate;
@@ -202,9 +220,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #3498db, /* Blue color */
-    #f39c12 50%, /* Orange color */
-    #c0392b /* Dark red color */
+    #3498db,
+    #f39c12 50%,
+    #c0392b 
   );
 
   animation: bounce4 0.9s;
@@ -224,9 +242,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #2ecc71, /* Green color */
-    #3498db 50%, /* Blue color */
-    #f39c12 /* Orange color */
+    #2ecc71,
+    #3498db 50%, 
+    #f39c12
   );
 
   animation: bounce5 0.8s;
@@ -246,9 +264,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #2ecc71, /* Green color */
-    #9b59b6 50%, /* Purple color */
-    #d35400 /* Pumpkin color */
+    #2ecc71,
+    #9b59b6 50%,
+    #d35400
   );
 
   animation: bounce6 0.6s;
@@ -268,9 +286,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #f39c12, /* Orange color */
-    #d35400 50%, /* Pumpkin color */
-    #8e44ad /* Dark purple color */
+    #f39c12,
+    #d35400 50%,
+    #8e44ad 
   );
 
   animation: bounce7 0.8s;
@@ -290,9 +308,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #8e44ad, /* Dark purple color */
-    #3498db 50%, /* Blue color */
-    #e74c3c /* Red color */
+    #8e44ad,
+    #3498db 50%,
+    #e74c3c
   );
 
   animation: bounce8 0.85s;
@@ -312,9 +330,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #2ecc71, /* Green color */
-    #f39c12 50%, /* Orange color */
-    #8e44ad /* Dark purple color */
+    #2ecc71,
+    #f39c12 50%,
+    #8e44ad
   );
 
   animation: bounce9 0.75s;
@@ -334,9 +352,9 @@ canvas {
   border-radius: 50%;
   background-image: linear-gradient(
     to bottom right,
-    #3498db, /* Blue color */
-    #e74c3c 50%, /* Red color */
-    #f39c12 /* Orange color */
+    #3498db,
+    #e74c3c 50%,
+    #f39c12
   );
 
   animation: bounce10 0.65s;
@@ -353,6 +371,66 @@ canvas {
 /***************************************************
   GAME PAGE STYLING
 ****************************************************/
+
+/*Navigation bar*/
+body {
+  font-family: Arial, sans-serif;
+}
+
+#gamePage {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #464646;
+}
+
+.navbar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14.5px 20px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.logo img {
+  width: 70px
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+  padding-right: 145px;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.profile {
+  text-align: right;
+}
+
+.profile-name {
+  font-weight: bold;
+}
+
+.high-score {
+  font-size: 12px;
+  color: #ccc;
+}
+
+/*Navigation bar*/
 #gamePage {
   display: none;
   height: 100vh;
@@ -372,13 +450,273 @@ canvas {
 }
 
 #endScreen {
-  display: none;
-  height: 100vh;
+  opacity: 0; 
+}
+
+#endScreen #endScore, #endScreen #newscore {
+  opacity: 0; 
 }
 
 #defaultCanvas0 {
   display: none;
 }
+/*Navigation bar*/
+
+/*Leaderboard Modal*/
+dialog {
+	padding: 1rem 3rem;
+  text-align: center;
+	background: rgb(255, 255, 255);
+	max-width: 400px;
+	padding-top: 2rem;
+	border-radius: 20px;
+	border: 0;
+	box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+	animation: fadeIn 1s ease both;
+	&::backdrop {
+		animation: fadeIn 1s ease both;
+		background: rgba(57, 57, 57, 0);
+		z-index: 2;
+		backdrop-filter: blur(10px);
+	}
+  .column-container {
+    display: flex;
+    justify-content: center;
+  }
+  .column {
+    flex: 1;
+    padding: 0 10px;
+  }
+	.x {
+		filter: grayscale(1);
+		border: none;
+		background: none;
+		position: absolute;
+		top: 15px;
+		right: 10px;
+		transition: ease filter, transform 0.3s;
+		cursor: pointer;
+		transform-origin: center;
+		&:hover {
+			filter: grayscale(0);
+			transform: scale(1.1);
+		}
+	}
+	h2 {
+		font-weight: 600;
+		font-size: 2rem;
+		padding-bottom: 1rem;
+	}
+	p {
+		font-size: 1rem;
+		line-height: 1.3rem;
+		padding: 0.5rem 0;
+		a {
+			&:visited {
+				color: rgb(var(--vs-primary));
+			}
+		}
+	}
+}
+body {
+	height: 100vh;
+}
+button.primary {
+	display: inline-block;
+	font-size: 0.8rem;
+	color: #fff !important;
+	background: rgb(var(--vs-primary) / 100%);
+	padding: 13px 25px;
+	border-radius: 17px;
+	transition: background-color 0.1s ease;
+	box-sizing: border-box;
+	transition: all 0.25s ease;
+	border: 0;
+	cursor: pointer;
+	box-shadow: 0 10px 20px -10px rgb(var(--vs-primary) / 50%);
+	&:hover {
+		box-shadow: 0 20px 20px -10px rgb(var(--vs-primary) / 50%);
+		transform: translateY(-5px);
+	}
+}
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+/*Leaderboard Modal*/
+
+/*The counters for timer, hits, and misses*/
+.StatsDisplayer {
+  background-color: #333333;
+  color: #fff;
+  text-align: left;
+  margin: 30px auto;
+  margin-right: 50px;
+  max-width: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+  z-index: 1;
+}
+/*THe counter for timer hits and misses*/
+
+/*The game buttons*/
+.start-menu {
+  background-color: #464646;
+  color: #fff;
+  text-align: center;
+  max-width: 400px;
+  margin: 130px auto;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  position: relative;
+  z-index: 1;
+
+  opacity: 1;
+  pointer-events: fill;
+  transition: opacity 0.3s ease-in-out, pointer-events 0.3s ease-in-out;
+}
+
+.game-over-message {
+  margin-top: -15px;
+  margin-bottom: 13px;
+}
+
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.start-button,
+.help-button,
+.credits-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.start-button:hover,
+.help-button:hover,
+.credits-button:hover {
+  background-color: #0056b3; 
+}
+/*The game buttons*/
+
+/*The buttons that come after Start, Help, Credits*/
+.submenu-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-bottom: 10px; 
+}
+.back-button {
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.submenu-button:hover {
+  background-color: #408e42; 
+}
+.back-button:hover {
+  background-color: #bf342a;
+}
+.submenu-button, .back-button {
+  text-align: center;
+}
+.submenu-button:last-child, .back-button:last-child {
+  margin-bottom: 0;
+}
+/*The buttons that come after Start, Help, Credits*/
+
+/*------------------------------------------------------------*
+CPS Trainer
+/*------------------------------------------------------------*/
+body {
+	background-color: #21252B;
+	color: #e0e0e0;
+	font-family: sans-serif;
+	user-select: none;
+}
+
+.CPSFrame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 80%;
+	height: 50%;
+	background-color: #4CB0F9;
+}
+
+#CPSiD {
+	height: 100%;
+	width: 0px;
+	background-color: rgb(67, 168, 239);
+	transition: width 10s linear;
+}
+
+#btn {
+	background-color: #00000000;
+	width: 100%;
+	height: 100%;
+	color: white;
+	border: none;
+	font-size: 10vh;
+	transition: color 0.3s;
+	cursor: crosshair;
+}
+
+#btn:active {
+	color: #0880D7;
+	transition: color 0s;
+}
+
+@media only screen and (max-width: 720px) {
+	.CPSFrame {
+		width: 100%
+	}
+}
+/*------------------------------------------------------------*
+CPS Trainer
+/*------------------------------------------------------------*/
+
 
 /*------------------------------------------------------------*
   REGISTRATION page styling
